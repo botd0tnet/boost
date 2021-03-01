@@ -174,9 +174,8 @@ do
 					
 	#    nym_systemd_run
 		
-	id=56
-	thuong=$((i/10))
-	serid=$((id + thuong))
+	if(i<10) serid=56
+	else  serid=57
 	service_id=$(cat /etc/systemd/system/${nymmixnode}.service | grep id | cut -c ${serid}-)
 
 	## Check if user chose a valid node written in the systemd.service file
