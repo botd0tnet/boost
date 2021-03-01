@@ -174,8 +174,9 @@ do
 					
 	#    nym_systemd_run
 		
-	if(i<10) serid=56
-	else  serid=57
+	id=56
+	thuong=$((i/100))
+	serid=$((id + thuong))
 	service_id=$(cat /etc/systemd/system/${nymmixnode}.service | grep id | cut -c ${serid}-)
 
 	## Check if user chose a valid node written in the systemd.service file
@@ -201,14 +202,21 @@ do
 
 	
     printf "%b\n\n\n" "${WHITE} --------------------------------------------------------------------------------"
-    printf "%b\n" "${WHITE}                             SPAM NODE IPV6 ! "
+    printf "%b\n" "${WHITE}                     Make sure to also check the official docs ! "
     printf "%b\n\n\n"
-    printf "%b\n" "${LGREEN}                               Nym Mixnode"
+    printf "%b\n" "${LGREEN}                            https://nymtech.net/docs/"
     printf "%b\n\n\n"
-    printf "%b\n" "${WHITE}                            Check the dashboard"
+    printf "%b\n" "${WHITE}                              Check the dashboard"
     printf "%b\n\n\n"
-    printf "%b\n" "${LBLUE}                   https://testnet-explorer.nymtech.net/"
+    printf "%b\n" "${LBLUE}                          https://testnet-explorer.nymtech.net/"
+    printf "%b\n\n\n"
+    printf "%b\n" "${WHITE}                                       or"
+    printf "%b\n\n\n"
+    printf "%b\n" "${YELLOW}                           ./nym_install.sh --status"
+    printf "%b\n\n\n"
+    printf "%b\n" "${WHITE}                              to see how many packets"
+    printf "%b\n\n\n"
+    printf "%b\n" "${WHITE}                            You have ${YELLOW} mixed ${WHITE} so far ! "
     printf "%b\n\n\n"
     printf "%b\n\n\n" "${WHITE} --------------------------------------------------------------------------------"
 done
-
